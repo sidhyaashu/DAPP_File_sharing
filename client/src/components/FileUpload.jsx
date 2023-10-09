@@ -8,7 +8,6 @@ const FileUpload = ({contract,account,provider}) => {
     const fileRef = useRef();
     const [file,setFile] = useState(null)
     const [fileName,setFileName] = useState("No image selected")
-    console.log(contract)
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
@@ -29,7 +28,7 @@ const FileUpload = ({contract,account,provider}) => {
                 });
 
                 const HashedImage = `ipfs://${resFile?.data?.IpfsHash}`;
-                console.log(HashedImage)
+                // console.log(HashedImage)
                 contract.add(account,HashedImage)
                 alert("Succesfully Image Uploaded")
                 setFileName("No image selected")

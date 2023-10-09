@@ -48,7 +48,11 @@ function App() {
 
   return (
     <>
+     
       <div className="App">
+
+        {!modalOpen && <button onClick={()=>setModalOpen(true)}>Share</button>}
+    {modalOpen && <Modal setModalOpen={setModalOpen} contract={contract} />}  
         <h1>ShareME 3.0</h1>
         <p>Account: {" "+account? account : "Account not conected"}</p>
 
@@ -56,6 +60,11 @@ function App() {
         account={account}
         provider={provider}
         contract={contract}
+        />
+        <br />
+        <Display 
+        account={account}
+        contract={contract} 
         />
       </div>
     </>
